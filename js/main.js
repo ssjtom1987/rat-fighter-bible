@@ -135,10 +135,10 @@ function buildPageTitle() {
       title: 'World',
       intro: 'A living document for the broader Rat Fighter universe, factions and history.'
     },
-    'art-bible.html': {
+    'art-gallery.html': {
       kicker: 'Visual Identity',
-      title: 'Art Bible',
-      intro: 'The visual language, branding and production artwork behind Rat Fighter.'
+      title: 'Art Gallery',
+      intro: 'The visual language of Rat Fighter - King Of Fists.'
     },
     'ideas.html': {
       kicker: 'Development Notes',

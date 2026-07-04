@@ -935,3 +935,227 @@ li {
   content: "";
   display: none;
 }
+.hero-banner {
+  background:
+    linear-gradient(rgba(9, 11, 18, 0.45), rgba(9, 11, 18, 0.85)),
+    url("../Images/logo/ratbanner01.png") center center / cover no-repeat;
+}
+.world-map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.map-card {
+  display: block;
+  position: relative;
+  min-height: 250px;
+  padding: 24px;
+  text-decoration: none;
+  color: var(--text);
+  background:
+    linear-gradient(145deg, rgba(35, 41, 56, 0.95), rgba(17, 23, 34, 0.95));
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--gold);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(43, 127, 255, 0.25);
+}
+
+.map-card .flag {
+  display: block;
+  font-size: 42px;
+  margin-bottom: 14px;
+}
+
+.map-card h3 {
+  margin-top: 0;
+  color: var(--gold-light);
+}
+
+.map-card p {
+  color: var(--text-muted);
+}
+
+.timeline {
+  display: grid;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 20px 20px 20px 28px;
+  background: var(--surface-light);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+}
+
+.timeline-item h3 {
+  margin-top: 0;
+  color: var(--gold-light);
+}
+
+.secret-stage{
+    border:2px dashed rgba(255,255,255,.15);
+}
+
+.secret-stage h3{
+    text-align:center;
+    letter-spacing:6px;
+}
+
+.classified{
+    text-align:center;
+    color:#d32f2f;
+    letter-spacing:2px;
+    margin:30px 0;
+}
+
+.secret-placeholder{
+    height:260px;
+    border:2px dashed rgba(255,255,255,.15);
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#141414,#090909);
+}
+
+.question-mark{
+    font-size:7rem;
+    font-weight:900;
+    color:#d4af37;
+    text-shadow:0 0 20px rgba(212,175,55,.45);
+    line-height:1;
+}
+
+.secret-placeholder span{
+    margin-top:20px;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    opacity:.7;
+}
+/* ART GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.gallery-item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-light);
+  color: var(--text);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.gallery-item span {
+  display: block;
+  padding: 14px;
+  color: var(--gold-light);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gallery-lightbox[hidden] {
+  display: none !important;
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.gallery-lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  text-align: center;
+}
+
+.gallery-lightbox-content img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+#gallery-lightbox-title {
+  margin: 14px 0 0;
+  color: var(--gold-light);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.gallery-close,
+.gallery-prev,
+.gallery-next {
+  position: fixed;
+  z-index: 10000;
+  border: 1px solid var(--gold);
+  background: rgba(23, 27, 37, 0.95);
+  color: var(--gold-light);
+  cursor: pointer;
+}
+
+.gallery-close {
+  top: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  font-size: 34px;
+}
+
+.gallery-prev,
+.gallery-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 58px;
+  height: 78px;
+  font-size: 56px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-prev {
+  left: 24px;
+}
+
+.gallery-next {
+  right: 24px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}

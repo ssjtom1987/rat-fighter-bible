@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art Gallery | Rat Fighter: King of Fists</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main>
+
+  <section class="section">
+    <div class="kicker">Visual Archive</div>
+    <h2>Art Gallery</h2>
+    <p class="section-intro">
+      A visual archive for Rat Fighter: King of Fists, including logos, portraits, stage concepts,
+      UI experiments, title screens, sprite references and production artwork.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>Gallery</h2>
+
+    <div class="gallery-grid">
+
+      <button class="gallery-item" data-gallery-src="Images/logo/rat_fighter_logo.png" data-gallery-title="Official Rat Fighter Logo">
+        <img src="Images/logo/rat_fighter_logo.png" alt="Official Rat Fighter Logo">
+        <span>Official Logo</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/battle02.png" data-gallery-title="Homepage Hero Background">
+        <img src="Images/Gallery/battle02.png" alt="Tom Vs Rat Fighter">
+        <span>Tom Vs Rat Fighter</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/battle03.png" data-gallery-title="High Noon at Albert Dock">
+        <img src="Images/Gallery/battle03.png" alt="Bob Destroying Kel">
+        <span>Bob Destroying Kel</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/hotrae.png" data-gallery-title="Tom Portrait">
+        <img src="Images/Gallery/hotrae.png" alt="The Bratwurst Crusher">
+        <span>The Bratwurst Crusher</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/detectivecheeks.png" data-gallery-title="Deronimo Portrait">
+        <img src="Images/Gallery/detectivecheeks.png" alt="The Rat Files">
+        <span>The Rat Files</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/battle04.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/battle04.png" alt="Nina Vs Toad">
+        <span>Nina Vs Toad</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/boofoo01.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/boofoo01.png" alt="Boofoo & Her Birds">
+        <span>Boofoo & Her Birds</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/deronimoking.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/deronimoking.png" alt="Deronimo The King">
+        <span>Deronimo The King</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/battle06.png" data-gallery-title="Deronimo Portrait">
+        <img src="Images/Gallery/battle06.png" alt="Noir taking down Tua">
+        <span>Noir taking down Tua</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/toadpose.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/toadpose.png" alt="Swamp Girl">
+        <span>Swamp Girl</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/battle05.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/battle05.png" alt="Cartoonmind V Joey">
+        <span>Cartoonmind V Joey</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/freypride.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/freypride.png" alt="Frey showing off her moves">
+        <span>Frey showing off her moves</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/rickeverton.png" data-gallery-title="Deronimo Portrait">
+        <img src="Images/Gallery/rickeverton.png" alt="Everton Win Again">
+        <span>Everton Win Again</span>
+      </button>
+
+      <button class="gallery-item" data-gallery-src="Images/Gallery/battle07.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/battle07.png" alt="The Beserker Himself - DEVO">
+        <span>The Berserker Himself - DEVO</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/battle08.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/battle08.png" alt="Dueling Guitars">
+        <span>Duelling Guitars</span>
+      </button>
+
+            <button class="gallery-item" data-gallery-src="Images/Gallery/battle9.png" data-gallery-title="Rat Fighter Portrait">
+        <img src="Images/Gallery/battle9.png" alt="Kyle Takes On Lemon Boi">
+        <span>Kyle Takes On Lemon Boi</span>
+      </button>
+
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<div class="gallery-lightbox" id="gallery-lightbox" hidden>
+<button class="gallery-close" type="button" aria-label="Close gallery">×</button>
+  <button class="gallery-prev" aria-label="Previous image">‹</button>
+
+  <div class="gallery-lightbox-content">
+    <img id="gallery-lightbox-image" src="" alt="">
+    <p id="gallery-lightbox-title"></p>
+  </div>
+
+  <button class="gallery-next" aria-label="Next image">›</button>
+</div>
+
+<script src="js/main.js"></script>
+
+<script>
+  const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+  const lightbox = document.getElementById("gallery-lightbox");
+  const lightboxImage = document.getElementById("gallery-lightbox-image");
+  const lightboxTitle = document.getElementById("gallery-lightbox-title");
+  const closeBtn = document.querySelector(".gallery-close");
+  const prevBtn = document.querySelector(".gallery-prev");
+  const nextBtn = document.querySelector(".gallery-next");
+
+  let currentIndex = 0;
+
+  function openGallery(index) {
+    currentIndex = index;
+    const item = galleryItems[currentIndex];
+
+    lightboxImage.src = item.dataset.gallerySrc;
+    lightboxImage.alt = item.dataset.galleryTitle;
+    lightboxTitle.textContent = item.dataset.galleryTitle;
+
+    lightbox.hidden = false;
+    document.body.classList.add("modal-open");
+  }
+
+  function closeGallery() {
+    lightbox.hidden = true;
+    document.body.classList.remove("modal-open");
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    openGallery(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    openGallery(currentIndex);
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => openGallery(index));
+  });
+
+  closeBtn.addEventListener("click", closeGallery);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
+
+    if (event.key === "Escape") closeGallery();
+    if (event.key === "ArrowRight") showNext();
+    if (event.key === "ArrowLeft") showPrev();
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeGallery();
+  });
+</script>
+
+</body>
+</html>
