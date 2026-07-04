@@ -143,7 +143,7 @@ function buildPageTitle() {
     'ideas.html': {
       kicker: 'Development Notes',
       title: 'Dev Notes',
-      intro: 'Sketches, ideas and concepts for the next evolution of the bible.'
+      intro: 'Sketches, ideas and concepts for the next evolution of the game.'
     },
     'characters/': {
       kicker: 'Character Select',
@@ -158,7 +158,7 @@ function buildPageTitle() {
   };
 
   const meta = pageMeta[pageKey] || {
-    kicker: 'Rat Fighter Bible',
+    kicker: 'Rat Fighter - King of Fists',
     title: document.title.split('|')[0].trim(),
     intro: 'A polished companion site for the Rat Fighter universe.'
   };
