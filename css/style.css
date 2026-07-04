@@ -192,3 +192,288 @@ li {
     columns: 1;
   }
 }
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+  margin: 0 0 40px;
+}
+
+.fighter-card {
+  position: relative;
+  display: block;
+  min-height: 320px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--panel);
+  border: 2px solid var(--border);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.fighter-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--yellow);
+}
+
+.fighter-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1) contrast(1.05);
+}
+
+.fighter-card div {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 50px 16px 16px;
+  background: linear-gradient(to top, #000, rgba(0,0,0,0.85), transparent);
+}
+
+.fighter-card h3 {
+  margin: 0;
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-size: 24px;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.fighter-card p {
+  margin: 4px 0 0;
+  color: var(--cyan);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+/* CHARACTER PROFILE */
+
+.back-button {
+    display:inline-block;
+    margin-bottom:25px;
+    padding:12px 18px;
+    border:2px solid var(--yellow);
+    color:var(--yellow);
+    text-decoration:none;
+    font-weight:bold;
+    text-transform:uppercase;
+    transition:.2s;
+}
+
+.back-button:hover{
+    background:var(--yellow);
+    color:#111;
+}
+
+.profile-header{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:40px;
+    align-items:start;
+}
+
+.profile-header img{
+    width:100%;
+    border:3px solid var(--yellow);
+    box-shadow:0 20px 40px rgba(0,0,0,.5);
+}
+
+.character-title h1{
+    margin:0;
+    font-size:58px;
+    color:var(--yellow);
+    line-height:1;
+}
+
+.character-title h2{
+    margin:10px 0 30px;
+    color:var(--cyan);
+    font-size:22px;
+    text-transform:uppercase;
+}
+
+.stats{
+    margin:30px 0;
+}
+
+.stat{
+    margin-bottom:18px;
+}
+
+.stat label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+    color:white;
+}
+
+.bar{
+    height:16px;
+    background:#222;
+    border:1px solid #444;
+}
+
+.fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--yellow),#ff6600);
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.info-box{
+    background:var(--panel-2);
+    padding:16px;
+    border:1px solid var(--border);
+}
+
+.info-box strong{
+    display:block;
+    color:var(--cyan);
+    margin-bottom:8px;
+}
+
+.move{
+    background:var(--panel-2);
+    border-left:5px solid var(--yellow);
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.quote{
+    font-style:italic;
+    border-left:4px solid var(--cyan);
+    padding-left:20px;
+    color:#ddd;
+}
+
+@media(max-width:900px){
+
+.profile-header{
+
+grid-template-columns:1fr;
+
+}
+
+.character-title h1{
+
+font-size:42px;
+
+}
+
+}
+
+/* Character role colours */
+
+.fighter-card.hero {
+  border-color: rgba(250, 204, 21, 0.65);
+}
+
+.fighter-card.hero h3 {
+  color: var(--yellow);
+}
+
+.fighter-card.villain {
+  border-color: rgba(239, 68, 68, 0.75);
+}
+
+.fighter-card.villain h3 {
+  color: var(--red);
+}
+
+.fighter-card.antihero {
+  border-color: rgba(56, 189, 248, 0.7);
+}
+
+.fighter-card.antihero h3 {
+  color: var(--cyan);
+}
+
+.fighter-card.experiment {
+  border-color: rgba(124, 58, 237, 0.85);
+}
+
+.fighter-card.experiment h3 {
+  color: #c084fc;
+}
+
+.fighter-card.wildcard {
+  border-color: rgba(244, 114, 182, 0.75);
+}
+
+.fighter-card.wildcard h3 {
+  color: var(--pink);
+}
+
+.fighter-card.boss {
+  border-width: 3px;
+  box-shadow:
+    0 0 20px rgba(250, 204, 21, 0.25),
+    0 20px 35px rgba(0, 0, 0, 0.45);
+}
+
+.fighter-card.boss::before {
+  content: "BOSS";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 5px 8px;
+  background: #000;
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fighter-card::after {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid currentColor;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.fighter-card.hero::after {
+  content: "Hero";
+  color: var(--yellow);
+}
+
+.fighter-card.villain::after {
+  content: "Villain";
+  color: var(--red);
+}
+
+.fighter-card.antihero::after {
+  content: "Anti-Hero";
+  color: var(--cyan);
+}
+
+.fighter-card.experiment::after {
+  content: "Experiment";
+  color: #c084fc;
+}
+
+.fighter-card.wildcard::after {
+  content: "Wildcard";
+  color: var(--pink);
+}
+
+.fighter-card.boss::after {
+  content: "";
+  display: none;
+}
