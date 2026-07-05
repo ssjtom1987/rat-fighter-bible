@@ -135,10 +135,15 @@ function buildPageTitle() {
       title: 'World',
       intro: 'A living document for the broader Rat Fighter universe, factions and history.'
     },
-    'art-gallery.html': {
+        'art-gallery.html': {
       kicker: 'Visual Identity',
       title: 'Art Gallery',
       intro: 'The visual language of Rat Fighter - King Of Fists.'
+    },
+    'dev-log.html': {
+      kicker: 'Development Progress',
+      title: 'Dev Log',
+      intro: 'A timeline of updates, technical challenges, and milestones in the development of Rat Fighter.'
     },
     'ideas.html': {
       kicker: 'Development Notes',
