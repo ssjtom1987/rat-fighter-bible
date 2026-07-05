@@ -3,20 +3,47 @@ const devPostsContainer = document.getElementById("dev-posts");
 async function loadDevPosts() {
   if (!devPostsContainer) return;
 
-  const response = await fetch("data/dev-posts.json");
-  const files = await response.json();
+  try {
+    const response = await fetch("data/dev-posts.json");
 
-  for (const file of files) {
-    const mdResponse = await fetch(`devlogs/${file}`);
-    const markdown = await mdResponse.text();
+    if (!response.ok) {
+      throw new Error(`Could not load data/dev-posts.json`);
+    }
 
-    const post = parseMarkdownPost(markdown);
-    devPostsContainer.appendChild(renderPost(post));
+    const files = await response.json();
+
+    for (const file of files) {
+      const mdResponse = await fetch(`devlogs/${file}`);
+
+      if (!mdResponse.ok) {
+        const errorPost = document.createElement("article");
+        errorPost.className = "dev-post";
+        errorPost.innerHTML = `
+          <div class="kicker">Dev Log Error</div>
+          <h2>Missing file</h2>
+          <p>Could not load: <strong>devlogs/${file}</strong></p>
+        `;
+        devPostsContainer.appendChild(errorPost);
+        continue;
+      }
+
+      const markdown = await mdResponse.text();
+      const post = parseMarkdownPost(markdown);
+      devPostsContainer.appendChild(renderPost(post));
+    }
+  } catch (error) {
+    devPostsContainer.innerHTML = `
+      <article class="dev-post">
+        <div class="kicker">Dev Log Error</div>
+        <h2>Could not load dev logs</h2>
+        <p>${error.message}</p>
+      </article>
+    `;
   }
 }
 
 function parseMarkdownPost(markdown) {
-  const frontMatterMatch = markdown.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const frontMatterMatch = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
 
   let meta = {};
   let content = markdown;
@@ -25,8 +52,9 @@ function parseMarkdownPost(markdown) {
     const metaText = frontMatterMatch[1];
     content = frontMatterMatch[2];
 
-    metaText.split("\n").forEach(line => {
+    metaText.split(/\r?\n/).forEach(line => {
       const [key, ...valueParts] = line.split(":");
+      if (!key || !valueParts.length) return;
       meta[key.trim()] = valueParts.join(":").trim();
     });
   }
@@ -53,6 +81,10 @@ function markdownToHtml(markdown) {
     .replace(/(<li>.*<\/li>)/gims, "<ul>$1</ul>")
     .split(/\n{2,}/)
     .map(block => {
+      block = block.trim();
+
+      if (!block) return "";
+
       if (
         block.startsWith("<h2") ||
         block.startsWith("<h3") ||
@@ -63,7 +95,7 @@ function markdownToHtml(markdown) {
         return block;
       }
 
-      return `<p>${block.trim()}</p>`;
+      return `<p>${block}</p>`;
     })
     .join("");
 }
