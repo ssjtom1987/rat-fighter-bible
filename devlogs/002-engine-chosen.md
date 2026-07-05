@@ -1,53 +1,50 @@
 ---
-title: Choosing the Right Engine
+title: Engine Chosen – The Road Ahead
 date: 05/07/2026
-kicker: Development Log #002
-version: v0.0.2
-category: Planning
-tags: Engine Research, Godot, Unity, IKEMEN GO, Dyad, v0
+kicker: Development Log #001
+version: v0.0.1
+category: Development
+tags: Godot, AI, Engine Selection, Planning
 ---
 
-Now that the Rat Fighter Wiki and Art Bible are in place, it's time to focus on building the game itself.
+After spending time researching different engines, AI tools and existing fighting game frameworks, I've finally settled on the direction Rat Fighter will take.
 
-The goal is straightforward:
+Rather than continuing to jump between different platforms, the goal now is to build the game on a solid foundation that can grow over time without needing to be rebuilt from scratch.
 
-- Create a retro 2D fighter inspired by Street Fighter and SNK classics.
-- Support a full roster of characters, unique moves and a story mode.
-- Feel polished, responsive and authentic.
-- Be as efficient to develop as possible.
-- Release on Steam, with a browser version if practical.
-- Online play would be a bonus in the future, but the priority is getting a solid single-player and local multiplayer game first.
+## Options Considered
 
-## What I've Tried
+- **v0** – Great for quickly prototyping ideas, but not suited to building a complete commercial fighting game.
+- **Dyad + Gemini API** – Produced menus and interface screens quickly, but gameplay remained very basic and API limits became a major obstacle.
+- **IKEMEN GO** – A capable engine built on the MUGEN philosophy with an active community, but ultimately felt more like extending an existing game than creating my own.
+- **Unity** – A powerful option with dedicated fighting game frameworks, although it felt like more engine than I needed for a 2D arcade fighter.
+- **Godot** – Modern, lightweight, open-source and purpose-built for excellent 2D development while providing complete control over the project.
 
-### v0
+## The Decision
 
-Started here after seeing an AI-built fighting game demo. It produced a promising prototype, but quickly hit credit limits and didn't feel like the right tool for scaling into the full game I wanted.
+Rat Fighter: King of Fists will be developed in **Godot**, using AI as a development assistant rather than relying on AI to build the entire game automatically.
 
-### Dyad + Gemini API
+Rather than asking AI to generate an entire game in one go, development will happen piece by piece. AI will help write code, solve problems, explain systems and speed up development, while Godot provides the stable foundation underneath.
 
-This successfully built menus, intro screens and a character select. The actual fighting gameplay remained very basic, and progress eventually stalled after hitting Gemini API quota limits.
+## The Workflow
 
-### Game Wiki / Art Bible
+- Godot will be the primary game engine.
+- ChatGPT and Claude will assist with programming and problem solving.
+- GitHub will manage version control.
+- The Rat Fighter Wiki and Art Bible will remain the source of truth for every character, stage and mechanic.
 
-I paused development to build a complete design document covering characters, stages, artwork, story and visual direction. This should make development much more focused going forward.
+## Development Strategy
 
-### IKEMEN GO
+Rather than trying to build twenty-plus fighters immediately, development will begin with a polished vertical slice consisting of:
 
-I downloaded and experimented with IKEMEN GO. It seems designed around extending an existing fighting engine by adding custom characters and content. It can produce good-looking games, but the engine feels a little dated and I'm unsure how flexible it will be long-term.
+- Two fully playable characters.
+- One complete stage.
+- Responsive controls and combat.
+- Health bars, timer and round system.
+- Basic AI opponent.
+- Character intros, victory screens and arcade presentation.
 
-### Godot + Claude
+Once those core systems feel like a genuine 90s arcade fighter, additional characters, stages, story content and game modes can be added on top of a stable foundation rather than continually rebuilding the engine.
 
-After researching AI-assisted development, Godot was recommended as the strongest option. It appears capable of building exactly the kind of game I want, although it will require more iteration and learning than the AI website builders.
+> **Current Goal**
 
-### Unity
-
-I also came across Unity with an open-source fighting game framework. I haven't explored it enough yet, but it's another possible route.
-
-## Where I'm At
-
-Right now I'm trying to choose the development path that gives me the best balance between quality, flexibility and development speed. I'd rather spend time learning the right tool once than keep rebuilding the project from scratch.
-
-> **Current Status**
-
-> The research phase is complete. The next step is to commit to a development workflow and begin building the first playable version of Rat Fighter.
+> Build Rat Fighter properly from the ground up—one polished feature at a time.
